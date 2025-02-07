@@ -1,0 +1,9 @@
+<!-- <div class="input-container">
+   <input id="miinput" name="miinput" type="text" class="input-personalizado" [ngClass]="{'input-informed': valor, 'input-empty' : !valor}" obligatorio="S" [(ngModel)]="valor" (blur)="onInputBlur()">
+   <label for="miinput">{{ etiqueta }}</label>
+ </div> -->
+
+<div class="div-input">
+  <input maxlength="1" name="input" type="text" [(ngModel)]="valor" (input)="onInputChange($event)">  
+  <label for="input" class="label-input" [ngClass]="{'input-informado': valor, 'input-empty' : !valor}">{{ etiqueta }}</label>
+</div>

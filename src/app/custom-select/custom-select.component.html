@@ -1,0 +1,28 @@
+<!-- <div > -->
+   <div class="div-select" autoClose="outside">
+      <!-- <button type="button" class="btn btn-outline-primary"id="dropdownBasic1" ngbDropdownToggle>Select</button> -->
+      <div class="boton-select" id="dropdownBasic1" (click)="toggle()">
+         <span class="titulo-select" [ngClass]="{ 'opcion-no-seleccionada': !pulsado, 'opcion-seleccionada': pulsado}" >{{ titulo }}</span>
+         <span class="label-valor">{{ valor }}</span>
+         <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+      <div *ngIf="pulsado" class="opciones">
+         <option>Ninguna</option>
+         <!-- <div class="divopcion"> -->
+            <option *ngFor="let opcion of opciones" (click)="check(opcion)" value="valor">{{ opcion.nombre }}</option>
+         <!-- </div> -->
+      </div>
+      <!-- <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+         <button class="dropdown-item" *ngFor="let opcion of opciones" (click)="check(opcion)">
+            <span *ngIf="opcion.checked"></span>{{ opcion.nombre }}
+         </button>
+      </div> -->
+
+
+      <!-- <label for="select">Valores</label> -->
+      <!-- <select name="select" class="miselect">
+         <option *ngFor="let opcion of opciones" [ngValue]="opcion">{{opcion.nombre}}</option> 
+      </select> -->
+      <!-- <label for="input" class="label-input" [ngClass]="{'input-informado': valor, 'input-empty' : !valor}">{{ etiqueta }}</label>
+   </div>
+<!-- </div> -->

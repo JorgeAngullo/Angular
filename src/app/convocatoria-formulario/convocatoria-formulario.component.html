@@ -1,0 +1,84 @@
+<form class="example-form">
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Tipo Expediente</mat-label>
+            <input matInput placeholder="" name="tipoExpediente" [(ngModel)]="tipoExpediente">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" style="margin-left: 20px;">
+            <mat-label>Año Expediente</mat-label>
+            <input matInput placeholder="" name="anyoExpediente" [(ngModel)]="anyoExpediente">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" style="margin-left: 20px;">
+            <mat-label>Número Expediente</mat-label>
+            <input matInput placeholder="" name="numeroExpediente" [(ngModel)]="numeroExpediente">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field style="width: 677px;">
+            <mat-label>Título convocatoria</mat-label>
+            <input matInput placeholder="" name="tituloConvocatoria" [(ngModel)]="tituloConvocatoria">
+        </mat-form-field>
+
+    </div>
+
+    <div>
+        <mat-form-field style="width:329px">
+            <mat-label>Tipo Convocatoria</mat-label>
+            <mat-select (selectionChange)="tipoConvocatoriaCambiado($event.value)" [(ngModel)]="tipoConvocatoria" name="tipoConvocatoria">
+                <!-- <mat-option *ngFor="let tipoConv of tiposConvocatoria" value="{{tipoConv.tcoIde}}">{{tipoConv.tcoIde}} ({{tipoConv.tcoDes}})</mat-option> -->
+                <mat-option *ngFor="let tipoConv of tiposConvocatoria" value="{{tipoConv.valor}}">{{tipoConv.valor}} ({{tipoConv.nombre}})</mat-option>
+            </mat-select>
+        </mat-form-field>
+            
+        <mat-form-field style="margin-left:20px;width:329px;">
+            <mat-label>Subtipo Convocatoria</mat-label>
+            <mat-select (selectionChange)="subtipoConvocatoriaCambiado($event.value)" name="subtipoConvocatoria" [(ngModel)]="subtipoConvocatoria">
+                <!-- <mat-option *ngFor="let tipoConv of tiposConvocatoria" value="{{tipoConv.tcoIde}}">{{tipoConv.tcoIde}} ({{tipoConv.tcoDes}})</mat-option> -->
+                <mat-option *ngFor="let tipoConv of tiposConvocatoria" value="{{tipoConv.valor}}">{{tipoConv.valor}} ({{tipoConv.nombre}})</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Id Convocatoria</mat-label>
+            <input matInput name="idConvocatoria" [(ngModel)]="idConvocatoria">
+        </mat-form-field> 
+
+        <mat-form-field class="example-full-width" style="margin-left: 10px;">
+            <mat-label>Id Convocatoria BDNS</mat-label>
+            <input matInput name="idConvocatoriaBDNS" [(ngModel)]="idConvocatoriaBDNS">
+        </mat-form-field> 
+    </div>
+  
+    <mat-form-field>
+        <mat-label>Fecha creación (Desde)</mat-label>
+        <input matInput [matDatepicker]="dp3" name="fechaCreacionDesde" [(ngModel)]="fechaCreacionDesde" [max]="fechaCreacionHasta">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 10px;">
+        <mat-label>Fecha creación (Hasta)</mat-label>
+        <input matInput [matDatepicker]="dp4" name="fechaCreacionHasta" [(ngModel)]="fechaCreacionHasta" [min]="fechaCreacionDesde">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="dp4"></mat-datepicker-toggle>
+        <mat-datepicker #dp4 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="buscar()" style="margin-left: 10px;">Buscar</button>
+    <button mat-raised-button color="primary" (click)="limpiarFormulario()" style="margin-left: 10px;">Limpiar</button>
+
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field> -->
+        
+        <!-- [convs] es el nombre de la variable en el componente hijo, lo que va entre comillas es el nombre de la variable en el componente padre -->
+        <app-convocatorias-table/>
+
+</form>

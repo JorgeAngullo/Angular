@@ -1,0 +1,96 @@
+.input-container {
+   position: relative;
+   display: block; /* Para que el label y el input estén en líneas separadas */ 
+   margin-top: 20px;
+   margin-bottom: 30px;
+}
+
+.input-container label {
+   position: absolute;
+   margin-right: 10px; /* Ajusta el margen entre la etiqueta y el input */
+   transition: font-size 0.3s; /* Transición suave para cambios de tamaño de fuente */
+   display: block;
+   top: 10px;
+   left: 5px;
+   color: rgb(68, 68, 68);
+ }
+
+ /* label {
+   font-weight: 400;
+   font-size: 16px;
+   cursor: auto;
+ } */
+
+
+/* .input-personalizado { */
+   /* font-weight: 400;
+   width: 200px;
+   height: 40px;
+   border-radius: 5px;
+   border: 2px solid yellow;
+   outline: none;
+   transition: border-color 0.3s; Transición suave para cambios de color de borde */
+/* } */
+
+.input-personalizado:focus {
+   border: 2px solid #6a7cb8;
+}
+
+.input-personalizado:focus + label{
+   color: #2747af;
+   transform: translateY(-20px) translateX(5px);
+   padding-left: 5px;
+   padding-right: 5px;
+   background-color: white;
+   transition: 0.1s;
+}
+
+/* .input-personalizado[obligatorio="S"] {
+   border-color: rgb(253, 122, 122);
+}
+
+.input-personalizado[obligatorio="S"] + label {
+   font-weight: bold;
+}
+
+.input-personalizado[obligatorio="N"] {
+   border-color: lightgray;
+} */
+
+/* .input-personalizado:empty {
+   border-color: blue;
+}
+*/
+/* .input-personalizado:not(:empty){
+   border-color: yellow;
+}  */
+
+.input-informed {
+   width: 200px;
+   height: 40px;
+   padding-left: 5px;
+   padding-right: 5px;
+   border: 2px solid lightgray;
+   border-radius: 5px;
+   outline: none;
+   transition: border-color 0.3s;
+ }
+
+ .input-informed + label {
+   /* color: #2747af; */
+   transform: translateY(-20px) translateX(5px);
+   padding-left: 5px;
+   padding-right: 5px;
+   background-color: white;
+   transition: transform 0.5s;
+ }
+
+ .input-empty {
+   font-weight: 400;
+   width: 200px;
+   height: 40px;
+   border-radius: 5px;
+   border: 2px solid lightgray;
+   outline: none;
+   transition: border-color 0.3s; /* Transición suave para cambios de color de borde */
+ }

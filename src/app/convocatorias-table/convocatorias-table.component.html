@@ -1,0 +1,138 @@
+
+<div>
+      <mat-table class="full-width-table" matSort [dataSource]="dataSource">
+            
+        <!-- Cabeceras -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <!-- Definición de filas -->
+        <mat-row *matRowDef="let row; columns: displayedColumns" (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"/>
+
+        <!-- Definición de columnas -->
+        <!-- EL ORDEN DE LAS COLUMNAS NO SE DETERMINA AQUÍ, SINO EN displayedColumns EN EL .ts -->
+
+        <!-- Nº fila Column -->
+        <!-- <ng-container matColumnDef="Fila">
+          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-cell *matCellDef="let index = index;">{{index+1}}</mat-cell> -->
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Id</th> -->
+          <!-- <td mat-cell *matCellDef="let row; let index = dataIndex" style="text-align: center;">{{row.conIde}}</td> -->
+        <!-- </ng-container> -->
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="Id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conIde}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Id</th> -->
+          <!-- <td mat-cell *matCellDef="let row; let index = dataIndex" style="text-align: center;">{{row.conIde}}</td> -->
+        </ng-container>
+
+        <!-- Expediente Column -->
+        <ng-container matColumnDef="Expediente">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.expediente.expTipo}}-{{row.expediente.unidadAdministrativa.uadIde}}-{{row.expediente.expAnyo}}-{{row.expediente.expNumero}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Fecha Creación</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conFechaCreacion | date:'dd/MM/yyyy'}}</td> -->
+        </ng-container>
+
+        <!-- Título Column -->
+        <ng-container matColumnDef="Título">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conTitulo}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;justify-content: center;">Título</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conTitulo}}</td> -->
+        </ng-container>
+
+        <!-- Tipo Column -->
+        <ng-container matColumnDef="Tipo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Tipo concesión</mat-header-cell>
+          <!-- <mat-cell *matCellDef="let row;">{{row.conTipo}}</mat-cell> -->
+          <mat-cell *matCellDef="let row;">{{descripcionTipoConvocatoria(row.conTipo)}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;text-align: right;">Tipo</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conTipo}}</td> -->
+        </ng-container>
+
+        <!-- Subtipo Column -->
+        <ng-container matColumnDef="Subtipo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Subtipo</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conSubtipo}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Subtipo</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conSubtipo}}</td> -->
+        </ng-container>
+
+        <!-- Publicable Column -->
+        <ng-container matColumnDef="Publicable">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Publicable</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conPublicable}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Publicable</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conPublicable}}</td> -->
+        </ng-container>
+
+        <!-- Fecha Creacion Column -->
+        <ng-container matColumnDef="FechaCreacion">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Creación</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conFechaCreacion | date:'dd/MM/yyyy'}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Fecha Creación</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conFechaCreacion | date:'dd/MM/yyyy'}}</td> -->
+        </ng-container>
+
+        <!-- Estado Column -->
+        <ng-container matColumnDef="Estado">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+          <mat-cell *matCellDef="let row;">{{row.conEstado}}</mat-cell>
+          <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Fecha Creación</th> -->
+          <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conFechaCreacion | date:'dd/MM/yyyy'}}</td> -->
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="Acciones">
+          <mat-header-cell *matHeaderCellDef>
+            <button mat-raised-button color="primary" style="background-color: orange; min-width: 70px;min-height:30px;" (click)="anyadir()">Añadir</button>
+            <!-- <button mat-raised-button color="warn" style="position: relative; min-width: 10px;min-height:10px;">x</button> -->
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" style="vertical-align: middle;">
+            <!-- <button mat-raised-button color="primary" style="background-color: darkkhaki; min-width: 15px;min-height:15px;">+</button> -->
+            <!-- <button mat-raised-button color="warn" class="mat-small">x</button> -->
+            <!-- <div class="mat-elevation-z8" style="height: 25px; width: 25px; background-color: rgb(221, 72, 72); border-radius: 5px;">O
+
+            </div> -->
+            <!-- <button mat-mini-fab class="small-icon-button">
+              <mat-icon>delete</mat-icon>
+            </button> -->
+
+            <mat-icon class="botonesTabla" (click)="abrirDialogo(row)">delete</mat-icon>
+            <mat-icon class="botonesTabla" style="margin-left: 10px;">edit</mat-icon>
+            <mat-icon class="botonesTabla" style="margin-left: 10px;">remove_red_eye</mat-icon>
+
+            <!-- <button mat-icon-button></button> -->
+            
+            <!-- <button mat-mini-fab class="small-icon-button">
+              <mat-icon>home</mat-icon> 
+            </button>
+              
+            <button mat-mini-fab class="small-icon-button">
+              <mat-icon>edit</mat-icon>
+            </button> -->
+          </mat-cell>
+            <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: aquamarine;">Fecha Creación</th> -->
+            <!-- <td mat-cell *matCellDef="let row" style="text-align: center;">{{row.conFechaCreacion | date:'dd/MM/yyyy'}}</td> -->
+        </ng-container>
+          
+        <!-- FIN DEFINICIÓN DE COLUMNAS -->
+
+        <div *matNoDataRow style="line-height:300px;height:300px; background-color: white; display: flex; align-items: center; justify-content: center;">
+          No hay registros
+        </div>
+      
+      </mat-table>
+      
+    <mat-paginator #paginator
+      [length]="17"
+      [pageSize]="5"
+      [showFirstLastButtons]="true"
+      hidePageSize="true"
+      [pageSizeOptions]="[5]"
+      style="justify-content: center;display:flex;"
+      arala="Select page">
+    </mat-paginator>
+  </div>

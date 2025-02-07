@@ -1,0 +1,150 @@
+<header class="mat-elevation-z8" style="background-color: ghostwhite; margin: 5px 15px -5px 15px; height:5vh; display: flex; align-items: center;">
+  
+   <div style="margin-left: 15px; display: flex;">
+     <img src="../assets/iconos/escudo.png">
+     
+     <div style="display: flex; margin-right: 0; margin-left: auto; align-items: center;">
+       <div style="text-align: left; margin-left: 10px;">
+         <div><span style="font-weight: bold;">AYUNTAMIENTO DE VALENCIA</span></div>
+         <div><span>PEGUIS</span></div>        
+       </div>    
+     </div>    
+   </div>
+ 
+   <div style="display: flex; margin-right: 0; margin-left: auto; align-items: center;">
+     <div style="text-align: right;">
+       <div><span style="font-weight: bold;">Identificador: </span></div>
+       <div><span style="font-weight: bold;">Nombre: </span></div>
+     </div>
+     
+     <div style="margin-right: 15px;">
+       <div><span>LSG54</span></div>
+       <div><span>Jorge Angullo Abad</span></div>
+     </div>
+     
+     <div style="display: flex;">
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;">home</mat-icon></div>
+       <!-- <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;" (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin">menu</mat-icon></div>       -->
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-slide-toggle></mat-slide-toggle></div>
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;">exit_to_app</mat-icon></div>
+     </div>
+ 
+     <!-- This template displays the overlay content and is connected to the button
+     <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+ 
+       <div style="background-color: lightblue; display: block; height: 220px; width: 150px; border-radius: 10px; font-size: 14px;">
+         <div style="padding : 30px;">
+ 
+           <div>
+             <a style="cursor: pointer">Cerrar sesión</a>
+           </div>
+           <br/>
+           <br/>
+           <br/>
+           <div>
+             Valenciano
+           </div>
+         </div>
+           
+       </div>
+     </ng-template> -->
+   </div>
+     
+ </header>
+
+ <div class="mat-elevation-z8 container">
+  <div class="posicionador">
+    <div class="minicard">
+      <div class="minicard-cabecera">
+        <div class="card-imagen">
+          <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/6193/6193914.png">
+        </div>
+      </div>
+      <div class="minicard-pie">
+        <div class="card-titulo">
+          Terceros
+        </div>            
+      </div>
+    </div>
+    <div class="minicard">
+      <div class="minicard-cabecera">
+        <div class="card-imagen">
+          <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/12061/12061177.png">
+        </div>
+      </div>
+      <div class="minicard-pie">
+        <div class="card-titulo">
+          Sanciones
+        </div>            
+      </div>
+    </div>
+    <div class="card" (click)="gestionarSubvenciones()">
+      <div class="card-cabecera">
+        <div class="card-imagen">
+          <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/6536/6536330.png">
+        </div>
+      </div>
+      <div class="card-pie">
+        <div class="card-titulo">
+          Gestionar subvenciones
+        </div>            
+      </div>
+    </div>
+    <div class="minicard">
+      <div class="minicard-cabecera">
+        <div class="card-imagen">
+          <img style="width: 100%; height: 100%;" src="https://cdn.icon-icons.com/icons2/145/PNG/256/bar_chart_21471.png">
+        </div>
+      </div>
+      <div class="minicard-pie">
+        <div class="card-titulo">
+          Informes
+        </div>            
+      </div>
+    </div>
+    <div class="minicard">
+      <div class="minicard-cabecera">
+        <div class="card-imagen">
+          <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/7721/7721644.png">
+        </div>
+      </div>
+      <div class="minicard-pie">
+        <div class="card-titulo">
+          Inhabilitaciones
+        </div>            
+      </div>
+    </div>
+    <!-- <div class="minicard">
+      <div class="card-imagen">
+        <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/6193/6193914.png">
+      </div>
+      <div class="card-titulo">
+        Sanciones
+      </div>            
+    </div>
+    <div class="card">
+      <div class="card-imagen">
+        <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/6193/6193914.png">
+      </div>
+      <div class="card-titulo">
+        Gestionar subvenciones
+      </div>            
+    </div>    
+    <div class="minicard">
+      <div class="card-imagen">
+        <img style="width: 100%; height: 100%;" src="https://cdn.icon-icons.com/icons2/145/PNG/256/bar_chart_21471.png">
+      </div>
+      <div class="card-titulo">
+        Informes
+      </div>            
+    </div>
+    <div class="minicard">
+      <div class="card-imagen">
+        <img style="width: 100%; height: 100%;" src="https://cdn-icons-png.flaticon.com/512/6193/6193914.png">
+      </div>
+      <div class="card-titulo">
+        Inhabilitaciones
+      </div>            
+    </div> -->
+  </div>
+</div>

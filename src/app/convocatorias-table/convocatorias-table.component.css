@@ -1,0 +1,164 @@
+.mat-mdc-table{
+  /* background-color: rgb(140, 140, 224); */
+  background-color: lightgray;
+  /* border-radius: 5px 5px 0px 0px; */
+  border: 1px double rgb(187, 187, 243);
+  height: 317px;
+}
+
+/* .mat-mdc-paginator{
+  background-color: rgb(29, 15, 228);
+} */
+
+mat-row:nth-child(2n+1) {
+  background-color: #f0fbff;
+}
+
+mat-row:nth-child(2n) {
+  background-color: #ffffff;  
+}
+
+mat-header-cell {
+  /* background-color: rgb(113, 216, 164); */
+  justify-content: center;
+  /* font-weight: bold; */
+    /* color: white; */
+  color: rgb(63, 59, 59);
+}
+
+mat-header-row {
+  min-height: 40px;
+  border: 1px;
+  background-color: rgb(212, 215, 255);
+}
+
+/* mat-cell {
+  justify-content:center;
+} */
+
+/* mat-cell {
+  justify-content:center;
+} */
+
+.mat-mdc-row:hover{
+  background-color: #c8f0ff;
+  
+}
+
+.mat-column-Fila {
+  flex: 0 0 1%;
+  justify-content:center;
+}
+
+.mat-column-Id {
+  flex: 0 0 5%;
+  justify-content:center;
+}
+
+.mat-column-Expediente {
+  flex: 0 0 10%;
+  justify-content:center;
+}
+
+.mat-column-Título {
+  flex: 0 0 40%;
+  justify-content:left;
+}
+
+.mat-column-Tipo {
+  flex: 0 0 12%;
+  justify-content:left;
+}
+
+.mat-column-Subtipo {
+  flex: 0 0 5%;
+  justify-content:center;
+}
+
+.mat-column-Publicable {
+  flex: 0 0 5%;
+  justify-content:center;
+}
+
+.mat-column-FechaCreacion {
+  flex: 0 0 10%;
+  justify-content:center;
+}
+
+.mat-column-Estado {
+  flex: 0 0 5%;
+  justify-content:center;
+}
+
+.mat-column-Acciones {
+  flex: 0 0 8%;
+  justify-content: center;
+}
+
+.seccion {
+  font-size: 18px; font-weight: 400; font-style: italic; color: darkslategray;
+}
+
+.mat-mdc-row {
+  /* border: 1px solid #e7e7e7; */
+  /* font-weight: bold; */
+  min-height: 55px !important;
+}
+
+/* .addhover {
+  background-color: rgb(161, 161, 255);
+} */
+
+.addhover:hover {
+  background-color: rgb(132, 134, 253);
+  /* color: black; */
+  
+}
+
+.p1{
+  font-size: 30px;
+  color: white;
+}
+
+.addhover:hover .p1{
+  /* color: orange; */
+  color:white;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+
+}
+
+/* quita las flechas en el input de tipo number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.small-icon-button{
+  visibility:visible;
+}
+
+mat-row:hover {
+  cursor: pointer;
+
+  .small-icon-button{
+     visibility:visible;
+  }
+
+  .mat-icon {
+    color: gray;
+    cursor:pointer;
+    visibility: visible;
+  }
+
+  .mat-icon:hover{
+    color: black;
+  }
+}
+
+.botonesTabla {
+  visibility: hidden;
+}

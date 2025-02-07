@@ -1,0 +1,49 @@
+.div-datepicker{
+   /* position: relative; */
+   display: inline-block;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-right: 30px;
+   height: 40px;
+   width: 300px;
+   /* background-color: red; */
+   box-sizing: border-box;   
+}
+
+mat-label{
+   top: 10px;
+}
+
+.mat-calendar {
+   background-color: red;
+}
+ 
+ /* Modificar el color del texto del datepicker */
+mat-calendar-content {
+   color: yellow;
+}
+ 
+ /* Modificar el tamaño del datepicker */
+mat-calendar {
+   font-size: 16px;
+}
+
+.mat-datepicker-content {
+   background-color: #f0f0f0;
+ }
+ 
+ /* Cambiar el color del texto del datepicker */
+ .mat-calendar-body-cell-content {
+   color: #333;
+ }
+ 
+ /* Cambiar el tamaño del texto del datepicker */
+ .mat-calendar-body-cell-content {
+   font-size: 16px;
+ }
+ 
+ /* Cambiar el color de fondo de los días seleccionados */
+ .mat-calendar-body-selected {
+   background-color: #007bff;
+   color: #fff;
+ }

@@ -1,0 +1,80 @@
+<header class="mat-elevation-z8" style="background-color: ghostwhite; margin: 5px 15px -5px 15px; height:5vh; display: flex; align-items: center;">
+  
+   <div style="margin-left: 15px; display: flex;">
+     <img src="../assets/iconos/escudo.png">
+     
+     <div style="display: flex; margin-right: 0; margin-left: auto; align-items: center;">
+       <div style="text-align: left; margin-left: 10px;">
+         <div><span style="font-weight: bold;">AYUNTAMIENTO DE VALENCIA</span></div>
+         <div><span>PEGUIS</span></div>        
+       </div>    
+     </div>    
+   </div>
+ 
+   <div style="display: flex; margin-right: 0; margin-left: auto; align-items: center;">
+     <div style="text-align: right;">
+       <div><span style="font-weight: bold;">Identificador: </span></div>
+       <div><span style="font-weight: bold;">Nombre: </span></div>
+     </div>
+     
+     <div style="margin-right: 15px;">
+       <div><span>LSG54</span></div>
+       <div><span>Jorge Angullo Abad</span></div>
+     </div>
+     
+     <div style="display: flex;">
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;" (click)="inicio()">home</mat-icon></div>
+       <!-- <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;" (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin">menu</mat-icon></div>       -->
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-slide-toggle></mat-slide-toggle></div>
+       <div style="margin-right: 15px; margin-top: 5px;"><mat-icon style="cursor: pointer;">exit_to_app</mat-icon></div>
+     </div>
+ 
+     <!-- This template displays the overlay content and is connected to the button
+     <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+ 
+       <div style="background-color: lightblue; display: block; height: 220px; width: 150px; border-radius: 10px; font-size: 14px;">
+         <div style="padding : 30px;">
+ 
+           <div>
+             <a style="cursor: pointer">Cerrar sesión</a>
+           </div>
+           <br/>
+           <br/>
+           <br/>
+           <div>
+             Valenciano
+           </div>
+         </div>
+           
+       </div>
+     </ng-template> -->
+   </div>
+     
+ </header>
+
+ <div class="mat-elevation-z8" style="margin: 15px; height: 92vh;">
+   <div style="padding:20px; height: 98%;">
+     <span class="seccion">Añadir convocatoria</span>
+     <mat-divider/>
+     
+     <form>
+     
+     <!-- <custom-input etiqueta="Título" obligatorio="S"/>
+      
+      
+        <!-- <div class="input-container">
+          <input #myInput id="in" name="in" type="text" class="input-personalizado" [(ngModel)]="valor" obligatorio="S" (blur)="onInputBlur()" value="asdas">
+          <label for="in">Título</label>
+        </div> -->
+        <custom-input etiqueta="Tipo Exp." obligatorio="S"/>
+        <custom-input etiqueta="Título" obligatorio="N"/>
+        <custom-input etiqueta="Título" obligatorio="N"/>
+        
+      <!-- <div class="input-container">
+        <input id="in2" name="in2" type="text" class="input-personalizado" [ngClass]="{'input-informed': valor, 'input-empty' : !valor}" obligatorio="S" [(ngModel)]="valor" (blur)="onInputBlur()">
+        <label for="in2">Nombre</label>
+      </div> -->
+    </form>
+   </div>
+   <br/>   
+</div>
