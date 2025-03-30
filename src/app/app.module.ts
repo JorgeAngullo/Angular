@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from './Service/service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule} from '@angular/material/table';
 import { ConvocatoriasTableComponent } from './convocatorias-table/convocatorias-table.component';
@@ -51,55 +51,45 @@ const appRoutes : Routes = [
   {path:'anyadir', component: AnyadirConvocatoriaComponent},
 ]
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    ConvocatoriasTableComponent,
-    ConvocatoriaFormularioComponent,
-    DialogBorrarConvocatoriaComponent,
-    FilterPipe,
-    LoginComponent,
-    InicioComponent,
-    AnyadirConvocatoriaComponent,
-    CustomInputComponent,
-    BuscadorConvocatoriasComponent,
-    CustomSelectComponent,
-    CustomDatepickerComponent,
-    CustomInput2Component,
-    ConvocatoriaComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    MatTableModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSortModule,
-    MatButtonModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatDividerModule,
-    MatDialogModule,
-    MatTooltipModule,
-    OverlayModule,
-    MatSlideToggleModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [ServiceService, 
-    //muestra la fecha del datepicker con el formato de fecha español
-    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
-    // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {/*floatLabel: 'always', appearance:'outline'*/}}
-  ],
-    bootstrap: [AppComponent],
-  
-})
+@NgModule({ declarations: [
+        AppComponent,
+        ConvocatoriasTableComponent,
+        ConvocatoriaFormularioComponent,
+        DialogBorrarConvocatoriaComponent,
+        FilterPipe,
+        LoginComponent,
+        InicioComponent,
+        AnyadirConvocatoriaComponent,
+        CustomInputComponent,
+        BuscadorConvocatoriasComponent,
+        CustomSelectComponent,
+        CustomDatepickerComponent,
+        CustomInput2Component,
+        ConvocatoriaComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        MatTableModule,
+        BrowserAnimationsModule,
+        MatPaginatorModule,
+        MatExpansionModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSortModule,
+        MatButtonModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatDividerModule,
+        MatDialogModule,
+        MatTooltipModule,
+        OverlayModule,
+        MatSlideToggleModule,
+        RouterModule.forRoot(appRoutes)], providers: [ServiceService,
+        //muestra la fecha del datepicker con el formato de fecha español
+        { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, provideHttpClient(withInterceptorsFromDi()),] })
 export class AppModule { }
