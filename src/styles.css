@@ -46,3 +46,8 @@ mat-label {
   font-weight: 400;
   color: rgb(66, 66, 66);  
 }
+
+.custom-field {
+  background-color: #1783f0;
+  border-radius: 5px;
+}

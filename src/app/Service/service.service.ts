@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Convocatoria } from '../Modelo/Convocatoria';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { TipoConvocatoria } from '../Modelo/TipoConvocatoria';
 import { FiltrosBuscador } from '../Modelo/FiltrosBuscador';
 import { DatePipe, formatDate, registerLocaleData } from '@angular/common';
@@ -10,6 +10,7 @@ import { OpcionPublicable } from '../Modelo/OpcionesPublicable';
 import { UnidadAdministrativa } from '../Modelo/UnidadAdministrativa';
 import { SubtipoConvocatoria } from '../Modelo/SubtipoConvocatoria';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,28 +18,28 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  urlListarConvocatorias = 'http://localhost:8080/convocatorias';
+  urlConvocatorias = 'http://localhost:8080/convocatorias';
 
   urlFindConvocatoriaById = 'http://localhost:8080/convocatorias';
 
   urlFiltrarConvocatorias = 'http://localhost:8080/convocatorias';
 
-  urlListarTiposConvocatoria = 'http://localhost:8080/tiposConvocatoria/listar';
+  urlTiposConvocatoria = 'http://localhost:8080/tiposConvocatoria';
 
-  urlListarSubtiposConvocatoria = 'http://localhost:8080/subtiposConvocatoria/findPorTipoConv';
+  urlSubtiposConvocatoria = 'http://localhost:8080/subtiposConvocatoria/findPorTipoConv';
   
-  urlListarEstadosConvocatoria = 'http://localhost:8080/estadosConvocatoria/listar';
+  urlEstadosConvocatoria = 'http://localhost:8080/estadosConvocatoria';
 
-  urlListarUnidadesAdministrativas = 'http://localhost:8080/unidadesAdministrativas/listar';
+  urlUnidadesAdministrativas = 'http://localhost:8080/unidadesAdministrativas';
 
   getConvocatorias() : Observable<Convocatoria[]> {
     console.log("getConvocatorias");
 
-    let obs = this.http.get<Convocatoria[]>(this.urlListarConvocatorias);
+    let obs = this.http.get<Convocatoria[]>(this.urlConvocatorias);
 
     obs.forEach(conv => console.log(conv));
 
-    // return this.http.get<Convocatoria[]>(this.urlListarConvocatorias);
+    // return this.http.get<Convocatoria[]>(this.urlConvocatorias);
     return obs;
   }
 
@@ -48,34 +49,32 @@ export class ServiceService {
   }
 
   getTiposConvocatoria() : Observable<TipoConvocatoria[]> {
-    let tiposConvocatoria : Observable<TipoConvocatoria[]>;
-    tiposConvocatoria = this.http.get<TipoConvocatoria[]>(this.urlListarTiposConvocatoria);
-    tiposConvocatoria.forEach(tipoConvocatoria => console.log(tipoConvocatoria));
-    return tiposConvocatoria;
-    // return this.http.get<TipoConvocatoria[]>(this.urlListarTiposConvocatoria);
+    return this.http.get<any[]>(this.urlTiposConvocatoria).pipe(
+      map(data => 
+        data.map(item => ({
+          valor: item.tcoIde,
+          nombre: item.tcoDes
+        }))
+      )
+    );
   }
 
   getSubtiposConvocatoria(tcoIde : string) : Observable<SubtipoConvocatoria[]> {
-    // let tipoConva = tipoConv;
-    return this.http.post<SubtipoConvocatoria[]>(this.urlListarSubtiposConvocatoria, {tcoIde});
+    return this.http.post<SubtipoConvocatoria[]>(this.urlSubtiposConvocatoria, {tcoIde});
   }
 
-  // getConvocatoriasByCriteria(filtro : Map<string, object>) : Observable<Convocatoria[]>{
   getConvocatoriasByCriteria(filtro : FiltrosBuscador) : Observable<Convocatoria[]>{
-    console.log("getConvocatoriasByCriteria");
-    // getConvoiltrarConvocatorias, { filtro });
     let filtroBuscadorToString = this.filtroBuscadorToString(filtro);
-    // console.log(filtroBuscadorToString);
 
     return this.http.post<Convocatoria[]>(this.urlFiltrarConvocatorias, { filtroBuscadorToString });
   }
 
   getEstadosConvocatoria() : Observable<EstadoConvocatoria[]> {
-    return this.http.get<EstadoConvocatoria[]>(this.urlListarEstadosConvocatoria);
+    return this.http.get<EstadoConvocatoria[]>(this.urlEstadosConvocatoria);
   }
 
   getUnidadesAdministrativas() : Observable<UnidadAdministrativa[]> {
-    return this.http.get<UnidadAdministrativa[]>(this.urlListarUnidadesAdministrativas);
+    return this.http.get<UnidadAdministrativa[]>(this.urlUnidadesAdministrativas);
   }
 
   filtroBuscadorToString(filtro : FiltrosBuscador) : string {

@@ -12,11 +12,11 @@ import { TipoConvocatoria } from '../Modelo/TipoConvocatoria';
 export class BuscadorConvocatoriasComponent implements OnInit {
   constructor(private service:ServiceService, private router:Router) {}
 
-  tiposConvocatoria! : TipoConvocatoria[];
+  tiposConvocatoria : TipoConvocatoria[] = [];
+  valor! : String;
 
   ngOnInit() {
-    this.service.getTiposConvocatoria().subscribe(data => {this.tiposConvocatoria = data; console.log(data)});
-    
+    this.service.getTiposConvocatoria().subscribe(data => {this.tiposConvocatoria = data; console.table(data)});
   }
 
   filtrosBuscador : FiltrosBuscador = new FiltrosBuscador();

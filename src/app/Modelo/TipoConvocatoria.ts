@@ -1,11 +1,8 @@
-export class TipoConvocatoria {
+export interface TipoConvocatoria {
     //public tcoIde! : string;
     //public tcoDes! : string;
 
-    public valor! : string;
-    public nombre! : string;
-
-    constructor() {
-
-    }
+    valor : string;
+    nombre : string;
+   
 }

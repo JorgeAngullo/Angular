@@ -68,6 +68,10 @@
         
         <form>
           <div>
+            <mat-form-field class="custom-field">
+              <mat-label>Clearable input</mat-label>
+              <input matInput type="text" [(ngModel)]="valor">              
+            </mat-form-field>
             <custom-input obligatorio="N" etiqueta="Tipo Exp."/>
             <custom-input obligatorio="N" etiqueta="Año Exp."/>
             <custom-input obligatorio="N" etiqueta="Número Exp."/>
